@@ -15,12 +15,12 @@ public class BookstoreApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(BookRepository repository) {
+    CommandLineRunner demo(BookRepository repository) {
         return (args) -> {
-            repository.save(new Book("Harry Potter and the chamber of secrets", "J.K Rowling", 1998, "1232323-21", 19.99));
+            repository.save(new Book("Harri Potter ja salaisuuksien kammio", "J.K Rowling", 1998, "1232323-21", 19.99));
             repository.save(new Book("Hobitti", "J.R.R. Tolkien", 1937, "1234567-89", 25.00));
 
-            System.out.println("📚 Books found in database:");
+            System.out.println("Books found in database:");
             repository.findAll().forEach(book -> {
                 System.out.println(book.toString());
             });
